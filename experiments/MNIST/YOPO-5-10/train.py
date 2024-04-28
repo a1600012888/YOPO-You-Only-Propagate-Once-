@@ -18,7 +18,7 @@ import torch.optim as optim
 import os
 import time
 
-DEVICE = torch.device('cuda:{}'.format(args.d))
+DEVICE = torch.device('cuda:{}'.format(args.d)) if torch.cuda.is_available() else torch.device('cpu')
 torch.backends.cudnn.benchmark = True
 
 # writer = SummaryWriter(log_dir=config.log_dir)

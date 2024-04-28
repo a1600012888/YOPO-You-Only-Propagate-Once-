@@ -8,7 +8,7 @@ def create_train_dataset(batch_size = 128, root = '../data'):
      transforms.ToTensor(),
     ])
     trainset = torchvision.datasets.MNIST(root=root, train=True, download=True, transform=transform_train)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2 if torch.cuda.is_available() else 0)
 
     return trainloader
 def create_test_dataset(batch_size = 128, root = '../data'):
@@ -16,7 +16,7 @@ def create_test_dataset(batch_size = 128, root = '../data'):
      transforms.ToTensor(),
     ])
     testset = torchvision.datasets.MNIST(root=root, train=False, download=True, transform=transform_test)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2 if torch.cuda.is_available() else 0)
     return testloader
 
 
