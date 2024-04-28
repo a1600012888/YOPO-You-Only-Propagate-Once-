@@ -8,6 +8,7 @@ this code is from https://github.com/yaodongyu/TRADES/blob/master/models/small_c
 }
 '''
 from collections import OrderedDict
+import torch
 import torch.nn as nn
 
 

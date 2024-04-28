@@ -18,7 +18,7 @@ parser.add_argument('-d', type=int, default=0, help='Which gpu to use')
 args = parser.parse_args()
 
 
-DEVICE = torch.device('cuda:{}'.format(args.d))
+DEVICE = torch.device('cuda:{}'.format(args.d)) if torch.cuda.is_available() else torch.device('cpu')
 torch.backends.cudnn.benchmark = True
 
 net = create_network()
