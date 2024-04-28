@@ -116,7 +116,7 @@ def ResNet152():
 
 
 def test():
-    net = ResNet18()
+    net = cifar_resnet18()
     y = net(torch.randn(1,3,32,32))
     print(y.size())
 
